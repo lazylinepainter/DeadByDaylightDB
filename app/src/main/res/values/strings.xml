@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">dbdDB</string>
+    <string name="toolbar_titulo_inicial">r/deadbydaylight</string>
+
+
+    --- ACESSIBILIDADE ---
+
+    <string name="acessibilidade_botao_configuracao">configuração</string>
+
+</resources>
