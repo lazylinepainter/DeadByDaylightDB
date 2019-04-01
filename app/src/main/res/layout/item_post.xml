@@ -11,10 +11,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         app:cardBackgroundColor="@color/post_background_alpha"
         app:cardCornerRadius="5dp"
         app:cardElevation="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -30,39 +30,90 @@
                 android:layout_marginStart="8dp"
                 android:contentDescription="@null"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/tv_item_post_titulo"
+                app:layout_constraintEnd_toStartOf="@id/tv_item_post_title"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:src="@tools:sample/avatars" />
 
             <TextView
-                android:id="@+id/tv_item_post_titulo"
+                android:id="@+id/tv_item_post_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:textColor="@color/branco"
                 android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@id/iv_item_post_thumbnail"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/tv_item_post_preview_content"
+                app:layout_constraintEnd_toEndOf="parent"
                 tools:text="Título do post" />
 
             <TextView
-                android:id="@+id/tv_item_post_preview_conteudo"
+                android:id="@+id/tv_item_post_preview_content"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
-                android:layout_marginBottom="8dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/branco"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tv_item_post_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_item_post_title"
+                tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sagittis est felis, eu lacinia risus hendrerit pellentesque." />
+
+            <ImageView
+                android:id="@+id/iv_item_post_upvote_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:contentDescription="@null"
+                android:src="@drawable/dbd_upvote_icon"
+                app:layout_constraintEnd_toStartOf="@id/tv_item_post_upvotes_number"
+                app:layout_constraintStart_toStartOf="@id/tv_item_post_preview_content"
+                app:layout_constraintTop_toBottomOf="@+id/tv_item_post_preview_content" />
+
+            <TextView
+                android:id="@+id/tv_item_post_upvotes_number"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:textColor="@color/branco"
                 android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@id/tv_item_post_titulo"
-                app:layout_constraintTop_toBottomOf="@+id/tv_item_post_titulo"
-                tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sagittis est felis, eu lacinia risus hendrerit pellentesque." />
+                app:layout_constraintBottom_toBottomOf="@+id/iv_item_post_upvote_icon"
+                app:layout_constraintStart_toEndOf="@id/iv_item_post_upvote_icon"
+                app:layout_constraintTop_toBottomOf="@+id/tv_item_post_preview_content"
+                tools:text="23" />
+
+            <ImageView
+                android:id="@+id/iv_item_post_comment_icon"
+                android:layout_width="25dp"
+                android:layout_height="13dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@null"
+                android:scaleType="center"
+                android:src="@drawable/dbd_comment_icon"
+                app:layout_constraintBottom_toBottomOf="@id/iv_item_post_upvote_icon"
+                app:layout_constraintStart_toEndOf="@id/tv_item_post_upvotes_number"
+                app:layout_constraintTop_toBottomOf="@+id/tv_item_post_preview_content" />
+
+            <TextView
+                android:id="@+id/tv_item_post_comment_number"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/branco"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_item_post_upvote_icon"
+                app:layout_constraintStart_toEndOf="@id/iv_item_post_comment_icon"
+                app:layout_constraintTop_toBottomOf="@+id/tv_item_post_preview_content"
+                tools:text="23" />
 
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>

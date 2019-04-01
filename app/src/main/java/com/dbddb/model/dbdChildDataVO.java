@@ -245,4 +245,9 @@ public class dbdChildDataVO {
     public String getUrl() {
         return url;
     }
+
+    public Integer getNumComments() {
+        return numComments;
+    }
+
 }

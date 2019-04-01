@@ -10,8 +10,10 @@ import android.widget.TextView;
 
 import com.dbddb.R;
 import com.dbddb.model.dbdChildrenVO;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
+import java.util.Locale;
 
 public class SubredditAdapter extends
         RecyclerView.Adapter<SubredditAdapter.ViewHolder> {
@@ -37,11 +39,21 @@ public class SubredditAdapter extends
     public void onBindViewHolder(@NonNull SubredditAdapter.ViewHolder viewHolder, int position) {
         dbdChildrenVO dbdChildrenVO = mSubreddit.get(position);
 
+        //url img thumbnail to image view
+        Picasso.get().load(dbdChildrenVO.childData.getThumbnail()).into(viewHolder.thumbnail);
+
+        //title post
         String title = dbdChildrenVO.childData.getTitle().replaceAll("&amp;", "&").replaceAll("&", "&amp;");
         viewHolder.tituloPost.setText(title);
 
-        //TODO PEGAR APENAS PREVIEW DE POST
-        // viewHolder.previewPost.setText(dbdChildrenVO.childData.getSelftext());
+        //preview text post
+        viewHolder.previewPost.setText(dbdChildrenVO.childData.getSelftext());
+
+        //upvote count
+        viewHolder.upvoteCount.setText(String.format(Locale.getDefault(), "%d", dbdChildrenVO.childData.getUps()));
+
+        //comments count
+        viewHolder.commentCount.setText(String.format(Locale.getDefault(), "%d", dbdChildrenVO.childData.getNumComments()));
     }
 
     @Override
@@ -54,14 +66,17 @@ public class SubredditAdapter extends
         ImageView thumbnail;
         TextView tituloPost;
         TextView previewPost;
+        TextView upvoteCount;
+        TextView commentCount;
 
         ViewHolder(View itemView) {
             super(itemView);
 
             thumbnail = itemView.findViewById(R.id.iv_item_post_thumbnail);
-            tituloPost = itemView.findViewById(R.id.tv_item_post_titulo);
-            previewPost = itemView.findViewById(R.id.tv_item_post_preview_conteudo);
-
+            tituloPost = itemView.findViewById(R.id.tv_item_post_title);
+            previewPost = itemView.findViewById(R.id.tv_item_post_preview_content);
+            upvoteCount = itemView.findViewById(R.id.tv_item_post_upvotes_number);
+            commentCount = itemView.findViewById(R.id.tv_item_post_comment_number);
         }
     }
 }
