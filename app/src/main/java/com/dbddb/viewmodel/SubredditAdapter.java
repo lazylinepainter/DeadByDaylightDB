@@ -25,6 +25,11 @@ public class SubredditAdapter extends
         notifyDataSetChanged();
     }
 
+    public void clear() {
+        mSubreddit.clear();
+        notifyDataSetChanged();
+    }
+
     @NonNull
     @Override
     public SubredditAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

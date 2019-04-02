@@ -2,6 +2,7 @@ package com.dbddb.view;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     public dbdVO dbdVO;
     public List<dbdChildrenVO> dbdChildrenVOList;
     public RecyclerView rvSubreddit;
+    public SwipeRefreshLayout swipeRefresh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initVar();
         buildJsonObject();
-
+        initRefreshLayout();
     }
 
     private void buildJsonObject() {
@@ -73,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
         rvSubreddit.setLayoutManager(layoutManager);
 
         ImageButton ibConfig = findViewById(R.id.ib_configuracao);
-
         ibConfig.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,4 +83,16 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void initRefreshLayout() {
+        swipeRefresh = findViewById(R.id.sfl_refresh);
+        swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                SubredditAdapter adapter = new SubredditAdapter(dbdChildrenVOList);
+                adapter.clear();
+                buildJsonObject();
+                swipeRefresh.setRefreshing(false);
+            }
+        });
+    }
 }

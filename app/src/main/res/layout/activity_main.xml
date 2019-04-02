@@ -48,6 +48,7 @@
     </android.support.v7.widget.Toolbar>
 
     <ImageView
+        android:id="@+id/iv_background_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:importantForAccessibility="no"
@@ -56,19 +57,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_post"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:nestedScrollingEnabled="false"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/sfl_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         app:layout_constrainedHeight="true"
-        android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        tools:itemCount="7"
-        tools:listitem="@layout/item_post" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_post"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            android:scrollbars="vertical"
+            app:layout_constrainedHeight="true"
+            tools:itemCount="7"
+            tools:listitem="@layout/item_post" />
+
+    </android.support.v4.widget.SwipeRefreshLayout>
 </android.support.constraint.ConstraintLayout>
 
