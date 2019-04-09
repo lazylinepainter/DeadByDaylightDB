@@ -5,6 +5,7 @@ import com.dbddb.model.dbdVO;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 public interface API {
 
@@ -12,5 +13,8 @@ public interface API {
 
     @GET("deadbydaylight.json")
     Call<dbdVO> getData();
+
+    @GET("deadbydaylight.json")
+    Call<dbdVO> getData(@Query("after") String nextPage);
 
 }

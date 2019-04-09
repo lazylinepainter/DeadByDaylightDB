@@ -28,9 +28,11 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:scaleType="centerCrop"
                 android:contentDescription="@null"
+                app:layout_constraintVertical_bias="0.0"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/tv_item_post_title"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:src="@tools:sample/avatars" />
@@ -46,7 +48,6 @@
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@id/iv_item_post_thumbnail"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/tv_item_post_preview_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 tools:text="Título do post" />
 

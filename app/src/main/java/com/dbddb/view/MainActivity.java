@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     public List<dbdChildrenVO> dbdChildrenVOList;
     public RecyclerView rvSubreddit;
     public SwipeRefreshLayout swipeRefresh;
+    private String idNextPage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,11 +56,10 @@ public class MainActivity extends AppCompatActivity {
                 dbdVO = response.body();
                 if (dbdVO != null) {
                     dbdChildrenVOList = dbdVO.data.children;
+                    idNextPage = dbdVO.data.after;
                     SubredditAdapter adapter = new SubredditAdapter(dbdChildrenVOList);
                     rvSubreddit.setAdapter(adapter);
-
                 }
-
             }
 
             @Override

@@ -4,6 +4,9 @@ import com.squareup.moshi.Json;
 
 import java.util.List;
 
+interface ViewType {
+
+}
 public class dbdChildDataVO {
 
     @Json(name = "approved_at_utc")
@@ -186,7 +189,9 @@ public class dbdChildDataVO {
     public String postHint;
 
 
-    public dbdChildDataVO(String subreddit, String selftext, String authorFullname, String thumbnail, String title, Integer downs, String name, String subredditType, Integer ups, String author, Integer numComments, String permalink, String url) {
+    public dbdChildDataVO(String subreddit, String selftext, String authorFullname, String thumbnail,
+                          String title, Integer downs, String name, String subredditType, Integer ups,
+                          String author, Integer numComments, String permalink, String url, boolean isSelf) {
         this.subreddit = subreddit;
         this.selftext = selftext;
         this.authorFullname = authorFullname;
@@ -200,6 +205,7 @@ public class dbdChildDataVO {
         this.numComments = numComments;
         this.permalink = permalink;
         this.url = url;
+        this.isSelf = isSelf;
     }
 
     public String getThumbnail() {
@@ -250,4 +256,7 @@ public class dbdChildDataVO {
         return numComments;
     }
 
+    public boolean getIsSelf() {
+        return isSelf;
+    }
 }

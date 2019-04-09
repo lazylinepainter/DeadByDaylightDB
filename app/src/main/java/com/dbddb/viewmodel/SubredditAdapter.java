@@ -12,16 +12,18 @@ import com.dbddb.R;
 import com.dbddb.model.dbdChildrenVO;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
 public class SubredditAdapter extends
         RecyclerView.Adapter<SubredditAdapter.ViewHolder> {
 
-    private List<dbdChildrenVO> mSubreddit;
+    private ArrayList<dbdChildrenVO> mSubreddit;
 
     public SubredditAdapter(List<dbdChildrenVO> dbdChildrenVO) {
-        mSubreddit = dbdChildrenVO;
+        mSubreddit = new ArrayList<>();
+        mSubreddit.addAll(dbdChildrenVO);
         notifyDataSetChanged();
     }
 
@@ -45,7 +47,12 @@ public class SubredditAdapter extends
         dbdChildrenVO dbdChildrenVO = mSubreddit.get(position);
 
         //url img thumbnail to image view
-        Picasso.get().load(dbdChildrenVO.childData.getThumbnail()).into(viewHolder.thumbnail);
+        if (dbdChildrenVO.childData.getIsSelf()) {
+            viewHolder.thumbnail.setVisibility(View.GONE);
+        } else {
+            viewHolder.thumbnail.setVisibility(View.VISIBLE);
+            Picasso.get().load(dbdChildrenVO.childData.getThumbnail()).into(viewHolder.thumbnail);
+        }
 
         //title post
         String title = dbdChildrenVO.childData.getTitle().replaceAll("&amp;", "&").replaceAll("&", "&amp;");
@@ -83,5 +90,12 @@ public class SubredditAdapter extends
             upvoteCount = itemView.findViewById(R.id.tv_item_post_upvotes_number);
             commentCount = itemView.findViewById(R.id.tv_item_post_comment_number);
         }
+    }
+
+    //TODO IMPLEMENTAR ENDLESS SCROLL
+    public void updateInfo(List<dbdChildrenVO> lista) {
+        int tamanhoAnterior = mSubreddit.size();
+        mSubreddit.addAll(lista);
+        notifyItemRangeInserted(tamanhoAnterior - 1, lista.size());
     }
 }
