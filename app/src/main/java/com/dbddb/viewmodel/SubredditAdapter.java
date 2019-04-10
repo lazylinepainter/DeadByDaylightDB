@@ -92,7 +92,6 @@ public class SubredditAdapter extends
         }
     }
 
-    //TODO IMPLEMENTAR ENDLESS SCROLL
     public void updateInfo(List<dbdChildrenVO> lista) {
         int tamanhoAnterior = mSubreddit.size();
         mSubreddit.addAll(lista);
