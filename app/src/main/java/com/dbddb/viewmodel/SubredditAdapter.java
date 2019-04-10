@@ -47,25 +47,25 @@ public class SubredditAdapter extends
         dbdChildrenVO dbdChildrenVO = mSubreddit.get(position);
 
         //url img thumbnail to image view
-        if (dbdChildrenVO.childData.getIsSelf()) {
+        if (dbdChildrenVO.getChildData().getIsSelf()) {
             viewHolder.thumbnail.setVisibility(View.GONE);
         } else {
             viewHolder.thumbnail.setVisibility(View.VISIBLE);
-            Picasso.get().load(dbdChildrenVO.childData.getThumbnail()).into(viewHolder.thumbnail);
+            Picasso.get().load(dbdChildrenVO.getChildData().getThumbnail()).into(viewHolder.thumbnail);
         }
 
         //title post
-        String title = dbdChildrenVO.childData.getTitle().replaceAll("&amp;", "&").replaceAll("&", "&amp;");
+        String title = dbdChildrenVO.getChildData().getTitle().replaceAll("&amp;", "&").replaceAll("&", "&amp;");
         viewHolder.tituloPost.setText(title);
 
         //preview text post
-        viewHolder.previewPost.setText(dbdChildrenVO.childData.getSelftext());
+        viewHolder.previewPost.setText(dbdChildrenVO.getChildData().getSelftext());
 
         //upvote count
-        viewHolder.upvoteCount.setText(String.format(Locale.getDefault(), "%d", dbdChildrenVO.childData.getUps()));
+        viewHolder.upvoteCount.setText(String.format(Locale.getDefault(), "%d", dbdChildrenVO.getChildData().getUps()));
 
         //comments count
-        viewHolder.commentCount.setText(String.format(Locale.getDefault(), "%d", dbdChildrenVO.childData.getNumComments()));
+        viewHolder.commentCount.setText(String.format(Locale.getDefault(), "%d", dbdChildrenVO.getChildData().getNumComments()));
     }
 
     @Override

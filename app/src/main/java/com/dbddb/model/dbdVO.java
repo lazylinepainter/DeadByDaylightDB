@@ -6,7 +6,7 @@ import com.squareup.moshi.Json;
 public class dbdVO {
 
     @Json(name = "data")
-    public dbdDataVO data;
+    private dbdDataVO data;
 
     public dbdVO(dbdDataVO data) {
         this.data = data;

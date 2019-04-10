@@ -5,49 +5,49 @@ import com.squareup.moshi.Json;
 public class dbdChildDataVO {
 
     @Json(name = "name")
-    public String name;
+    private String name;
     @Json(name = "subreddit")
-    public String subreddit;
+    private String subreddit;
     @Json(name = "selftext")
-    public String selftext;
+    private String selftext;
     @Json(name = "author_fullname")
-    public String authorFullname;
+    private String authorFullname;
     @Json(name = "title")
-    public String title;
+    private String title;
     @Json(name = "subreddit_type")
-    public String subredditType;
+    private String subredditType;
     @Json(name = "ups")
-    public Integer ups;
+    private Integer ups;
     @Json(name = "downs")
-    public Integer downs;
+    private Integer downs;
     @Json(name = "thumbnail")
-    public String thumbnail;
+    private String thumbnail;
     @Json(name = "is_self")
-    public Boolean isSelf;
+    private Boolean isSelf;
     @Json(name = "view_count")
-    public Object viewCount;
+    private Object viewCount;
     @Json(name = "over_18")
-    public Boolean over18;
+    private Boolean over18;
     @Json(name = "media_only")
-    public Boolean mediaOnly;
+    private Boolean mediaOnly;
     @Json(name = "spoiler")
-    public Boolean spoiler;
+    private Boolean spoiler;
     @Json(name = "subreddit_id")
-    public String subredditId;
+    private String subredditId;
     @Json(name = "author")
-    public String author;
+    private String author;
     @Json(name = "num_comments")
-    public Integer numComments;
+    private Integer numComments;
     @Json(name = "permalink")
-    public String permalink;
+    private String permalink;
     @Json(name = "url")
-    public String url;
+    private String url;
     @Json(name = "media")
-    public Object media;
+    private Object media;
     @Json(name = "is_video")
-    public Boolean isVideo;
+    private Boolean isVideo;
     @Json(name = "post_hint")
-    public String postHint;
+    private String postHint;
 
 
     public dbdChildDataVO(String name, String subreddit, String selftext, String authorFullname, String thumbnail,

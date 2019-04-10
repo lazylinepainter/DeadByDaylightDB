@@ -7,9 +7,9 @@ import java.util.List;
 public class dbdDataVO {
 
     @Json(name = "children")
-    public List<dbdChildrenVO> children;
+    private List<dbdChildrenVO> children;
     @Json(name = "after")
-    public String after;
+    private String after;
 
     public dbdDataVO(List<dbdChildrenVO> children, String after) {
         this.children = children;
@@ -20,15 +20,8 @@ public class dbdDataVO {
         return children;
     }
 
-    public void setChildren(List<dbdChildrenVO> children) {
-        this.children = children;
-    }
-
     public String getAfter() {
         return after;
     }
 
-    public void setAfter(String after) {
-        this.after = after;
-    }
 }

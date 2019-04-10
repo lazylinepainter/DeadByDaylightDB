@@ -28,10 +28,10 @@ import retrofit2.converter.moshi.MoshiConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
-    public dbdVO dbdVO;
-    public List<dbdChildrenVO> dbdChildrenVOList;
-    public RecyclerView rvSubreddit;
-    public SwipeRefreshLayout swipeRefresh;
+    private dbdVO dbdVO;
+    private List<dbdChildrenVO> dbdChildrenVOList;
+    private RecyclerView rvSubreddit;
+    private SwipeRefreshLayout swipeRefresh;
     private SubredditAdapter adapter;
     private String idNextPage;
 
@@ -57,8 +57,8 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(@NonNull Call<dbdVO> call, @NonNull Response<dbdVO> response) {
                 dbdVO = response.body();
                 if (dbdVO != null) {
-                    dbdChildrenVOList = dbdVO.data.children;
-                    idNextPage = dbdVO.data.after;
+                    dbdChildrenVOList = dbdVO.getData().getChildren();
+                    idNextPage = dbdVO.getData().getAfter();
                     adapter = new SubredditAdapter(dbdChildrenVOList);
                     rvSubreddit.setAdapter(adapter);
                 }
@@ -124,8 +124,8 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(@NonNull Call<dbdVO> call, @NonNull Response<dbdVO> response) {
                 dbdVO = response.body();
                 if (dbdVO != null) {
-                    dbdChildrenVOList = dbdVO.data.children;
-                    idNextPage = dbdVO.data.after;
+                    dbdChildrenVOList = dbdVO.getData().getChildren();
+                    idNextPage = dbdVO.getData().getAfter();
                     adapter.updateInfo(dbdChildrenVOList);
                 }
             }
