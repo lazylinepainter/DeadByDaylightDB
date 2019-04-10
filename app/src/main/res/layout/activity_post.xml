@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/preto_background">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_post"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/linear_gradient_drawable"
+        android:minHeight="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/ib_post_fechar_botao"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/dbd_escape_icon"
+                android:contentDescription="@string/acessibilidade_botao_configuracao"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/tv_post_author_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/cinza"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_post"
+        tools:text="u/AutoModerator" />
+
+    <TextView
+        android:id="@+id/tv_post_title_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/branco"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_post_author_name"
+        app:layout_constraintStart_toStartOf="@+id/tv_post_author_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_post_author_name"
+        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+
+    <ImageView
+        android:id="@+id/iv_post_media"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@null"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_post_title_name"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tv_post_full_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textColor="@color/branco"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/tv_post_author_name"
+        app:layout_constraintStart_toStartOf="@id/tv_post_author_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_post_title_name"
+        tools:text="Nulla nec euismod risus. Quisque rhoncus ipsum ac purus pretium venenatis. Nam erat diam, sagittis non auctor eu, lacinia nec orci. Nunc cursus mattis euismod. Nunc sapien sapien, porta ac egestas id, pharetra non tortor. Fusce bibendum leo mi, sit amet faucibus libero tempus nec. Quisque et massa at diam dapibus mattis. Curabitur non euismod risus. Proin orci erat, tempus nec congue in, vestibulum id neque. " />
+
+</android.support.constraint.ConstraintLayout>

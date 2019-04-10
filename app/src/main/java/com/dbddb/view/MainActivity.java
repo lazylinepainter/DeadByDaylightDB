@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         buildJsonObject();
     }
 
+    //TODO TRANSFORMAR METODOS DE LOGICA PARA JSON NUMA CLASSE SEPARADA
     private void buildJsonObject() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(API.BASE_URL)
