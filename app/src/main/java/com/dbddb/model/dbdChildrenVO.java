@@ -5,17 +5,13 @@ import com.squareup.moshi.Json;
 public class dbdChildrenVO {
 
     @Json(name = "data")
-    public dbdChildDataVO childData;
+    private dbdChildDataVO childData;
 
     public dbdChildrenVO(dbdChildDataVO data) {
         this.childData = data;
     }
 
-    public dbdChildDataVO getData() {
+    public dbdChildDataVO getChildData() {
         return childData;
-    }
-
-    public void setData(dbdChildDataVO data) {
-        this.childData = data;
     }
 }
